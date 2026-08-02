@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Django
+*.sqlite3
+/backend/staticfiles/
+/backend/media/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Data — never commit datasets or model weights
+/data/
+*.edf
+*.npy
+*.pt
+*.pth
+
+# Node
+node_modules/
+dist/
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db

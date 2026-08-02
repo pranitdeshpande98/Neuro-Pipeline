@@ -1,0 +1,16 @@
+# Web framework
+Django~=5.2.16
+djangorestframework
+django-cors-headers
+django-filter
+
+# Config & database
+django-environ
+psycopg[binary]
+
+# Serving
+gunicorn
+
+# Infrastructure clients
+kubernetes
+boto3
