@@ -141,3 +141,9 @@ CORS_ALLOWED_ORIGINS = env.list(
     "CORS_ALLOWED_ORIGINS",
     default=["http://localhost:5173"],
 )
+
+S3_ENDPOINT_URL = env("S3_ENDPOINT_URL", default="http://localhost:9000")
+S3_ACCESS_KEY = env("S3_ACCESS_KEY")
+S3_SECRET_KEY = env("S3_SECRET_KEY")
+S3_BUCKET = env("S3_BUCKET", default="neuro")
+S3_REGION = env("S3_REGION", default="us-east-1")
