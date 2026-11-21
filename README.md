@@ -4,8 +4,11 @@ A distributed EEG analysis platform: per-subject signal preprocessing orchestrat
 as Kubernetes Jobs, with a Django REST API, PostgreSQL metadata store, S3-compatible
 artifact storage, and a React dashboard for visualizing results.
 
-**Status:** in active development. Ingestion and the pipeline framework are working;
-signal processing stages are in progress. See the roadmap below.
+**Status: in progress.** Working today: containerized PostgreSQL and MinIO, the data
+model, idempotent dataset ingestion into object storage, and the pipeline stage
+framework with dependency validation. The Kubernetes Job orchestration, the
+reconciler, the REST API and the React dashboard described below are the target
+design and are not built yet. The roadmap at the bottom tracks what is done.
 
 ## Overview
 
@@ -20,7 +23,7 @@ the engineering problem. It runs on the public
 [PhysioNet EEG Motor Movement/Imagery Database](https://physionet.org/content/eegmmidb/1.0.0/),
 so no hardware or private data is required to reproduce it.
 
-## Architecture
+## Architecture (target design)
 
 ```
                   ┌──────────────┐
@@ -112,18 +115,18 @@ permanent record of exactly what each job was asked to do.
 | API | Django 5.2 LTS, Django REST Framework |
 | Database | PostgreSQL 17 |
 | Object storage | MinIO (S3-compatible) |
-| Signal processing | MNE-Python, NumPy, SciPy |
-| Orchestration | Kubernetes Jobs, official Python client |
+| Signal processing | MNE-Python, NumPy, SciPy (stages in progress) |
+| Orchestration | Kubernetes Jobs, official Python client (planned) |
 | Containerization | Docker, Docker Compose for local services |
-| Frontend | React + Vite |
-| CI | GitHub Actions |
+| Frontend | React + Vite (planned) |
+| CI | GitHub Actions (planned) |
 
 ## Local development
 
 **Requirements:** Docker Desktop, Python 3.12, Node 20+.
 
 ```bash
-git clone https://github.com/<username>/neuro-pipeline.git
+git clone https://github.com/pranitdeshpande98/Neuro-Pipeline.git
 cd neuro-pipeline
 
 # Configuration
